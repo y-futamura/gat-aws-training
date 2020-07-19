@@ -9,7 +9,7 @@
     <?php
       try {
         # xxx.xxx.xxx.xxx はプライベート IP アドレス
-        $dbh = new PDO('mysql:host=xxx.xxx.xxx.xxx;dbname=aws', "root", "P@ssw0rd");
+        $dbh = new PDO('mysql:host=xxx.xxx.xxx.xxx;dbname=aws', "root", "Passw0rd!");
 
         $sth = $dbh->prepare("SELECT * from services");
         $sth->execute();
