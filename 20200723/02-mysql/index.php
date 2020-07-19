@@ -7,18 +7,19 @@
   </head>
   <body>
     <?php
-      $posts = array(
-        array(
-          "title" => "EC2 (Elastic Computing Cloud)",
-          "detail" => "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud.",
-          "image" => "./img/ec2.png",
-        ),
-        array(
-          "title" => "S3 (Simple Storage Service)",
-          "detail" => "Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.",
-          "image" => "./img/s3.png",
-        )
-      );
+      try {
+        # xxx.xxx.xxx.xxx はプライベート IP アドレス
+        $dbh = new PDO('mysql:host=xxx.xxx.xxx.xxx;dbname=aws', "root", "P@ssw0rd");
+
+        $sth = $dbh->prepare("SELECT * from services");
+        $sth->execute();
+        $posts = $sth->fetchAll();
+
+        $dbh = null;
+      } catch (PDOException $e) {
+        print "エラー!: " . $e->getMessage() . "<br/>";
+        die();
+      }
     ?>
 
     <h2 class="text-center mt-3 mb-5">AWSサービス概要</h2>
