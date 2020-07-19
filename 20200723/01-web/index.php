@@ -14,7 +14,7 @@
           "image" => "./img/ec2.png",
         ),
         array(
-          "title" => "S2 (Simple Storage Service)",
+          "title" => "S3 (Simple Storage Service)",
           "detail" => "スケーラビリティ、データ可用性、セキュリティ、およびパフォーマンスを提供するオブジェクトストレージサービス",
           "image" => "./img/s3.png",
         )
